@@ -44,5 +44,18 @@ $companies = [
         'Jean-Louis Gassée'
     ]
 ];
+ksort($companies);
+var_dump($companies);
+echo "Done with Third Question\n";
+foreach ($companies as $company => $key) {
+    sort($key);
+    $companies[$company] = $key;
+}
+var_dump($companies);
 
-print_r($companies);
+echo "Done with Fourth Question\n";
+
+arsort($companies);
+var_dump($companies);
+
+
