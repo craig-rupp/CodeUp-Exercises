@@ -3,15 +3,15 @@
 
 function validateNumeric($a, $b, $validateDivisionByZero = false) {
 	if(is_numeric($a) && is_numeric($b)) {
-		echo "Your outcom is :\n";
-	}
+		echo "Your outcome is :\n";
+	} 
 	elseif(!is_numeric($a) || !is_numeric($b)){
-		fwrite(STDERR, "Both {$a} and {$b} must be numbers to perform the desired math function");
+		fwrite(STDERR, "Both {$a} and {$b} must be numbers to perform the desired math function\n");
 		exit(1);
 	}
-	if ($validateDivisionByZero) {
+	if($validateDivisionByZero) {
 		if ($b == 0) {
-		fwrite(STDERR, "Can't Divide by Zero");
+		fwrite(STDERR, "Can't Divide by Zero\n");
 		exit(1);
 		}
 	}
@@ -36,8 +36,8 @@ function multiply($a, $b)
 
 function divide($a, $b)
 {  
-	if($b===0){
-		validateNumeric($s,$b,true);
+	if($b === 0){
+	validateNumeric($a,$b,true);
 	} else{
 		return $a / $b;	
 	}
@@ -45,8 +45,8 @@ function divide($a, $b)
 }
 function modulus($a, $b)
 {
-	if($b===0){
-		validateNumeric($s,$b,true);
+	if ($b === 0){
+		validateNumeric($a,$b,true);
 	} else{
 		return $a % $b;	
 	}
@@ -67,7 +67,7 @@ function modulus($a, $b)
 
 // Add code to test your functions here
 
-$a = 4;
+$a = 3;
 $b = 0;
 
 echo add($a,$b), PHP_EOL;
