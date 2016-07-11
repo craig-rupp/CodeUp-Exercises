@@ -8,10 +8,15 @@ $physicistsArray = explode(', ', $physicistsString);
 // print_r($physicistsArray);
 
 // $and = "and";
+sort($physicistsArray);
+// print_r($physicistsArray);
 
 array_splice($physicistsArray, 5, 0, 'and');
-
 // print_r($physicistsArray);
+
+
+
+print_r($physicistsArray);
 
 $famousFakePhysicists = ' ';
 
@@ -26,3 +31,4 @@ function humanizedList($famousFakePhysicists){
 }
 
 humanizedList($famousFakePhysicists);
+
