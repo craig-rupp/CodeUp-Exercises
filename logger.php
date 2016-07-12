@@ -33,3 +33,21 @@ function logError($date, $time) {
 }
 logInfo($date, $time);
 logError($date, $time);
+
+
+// function logMessage($logLevel, $message){
+// 	$filename = 'log -' . date('Y-m-d') . '.log';
+// 	$handle = fopen($filename, 'a');
+// 	$formatMessage = date('Y-m-d H:i:s') . " [$logLevel] $message";
+// 	fwrite($handle, $formatMessage);
+// }
+
+// function logInfo($message){
+// 	logMessage('INFO', $message);
+// }
+// function logError($message){
+// 	logMessage('Error', $message);
+// }
+
+// logInfo("This is an info Message");
+// logError("This is an error Message");
