@@ -18,7 +18,7 @@ $compare = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael'];
 
 // $youngRappers = ['Drizzy', 'YoungThug', 'FreddieGibbs', '']
 
-$find = 'Dean';
+// $find = 'Amy';
 
 function lesDoIt ($find, $names) {
 	if (array_search($find, $names) === false) {
@@ -27,7 +27,7 @@ function lesDoIt ($find, $names) {
 		echo "TRUE\n";
 	}
 }
-lesDoIt($find, $names);
+lesDoIt('Bob', $names);
 
 
 function compareArrays ($array1, $array2) {
