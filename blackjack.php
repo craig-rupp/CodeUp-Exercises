@@ -2,7 +2,6 @@
 
 // complete all "todo"s to build a blackjack game
 // create an array for suits
-$suits = [array('Clubs'), array('Heart'), array('Spade'), array('Diamond')];
 // create an array for cards
 $cards = [
   'King' => array('name' => 'King', 'value' => 10),
@@ -19,7 +18,11 @@ $cards = [
   '2' => array('name' => 'Two', 'value' => 2),
   'Ace' => array('name' => 'Ace', 'value' => 11)
 ];
+
+$suits = ['Clubs'=> $cards, 'Hearts' => $cards, 'Spades' => $cards, 'Diamond' => $cards];
+
 foreach($suits as $suit){
+  array_push($cards, var)
   var_dump($suit);
   $fullDeck = array_merge($suits, $cards);
 } 
