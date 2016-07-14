@@ -9,17 +9,16 @@ function humanizedList($physicistsArray, $autoSort = false){
 	if($autoSort){
 		sort($physicistsArray);	
 	}
-	array_pop($physicistsArray);
-	array_splice($physicistsArray, 5, 0, 'and Tony Stark');
-
-	$famousFakePhysicists = implode(', ', $physicistsArray);
+	$lastItem = array_pop($physicistsArray); 
+	$text = implode(', ', $physicistsArray);
+	$text .= ' and '. $lastItem; 
+	echo "Some of the most famous fictional physicists are {$text}". PHP_EOL;
 	
-echo "Some of the most famous fictional theoretical physicists are {$famousFakePhysicists}.\n";
-
 }
 $physicistsArray = explode(', ', $physicistsString);
+// // end($physicistsArray);
+// $secondToLast = $physicistsArray[count($physicistsArray)-2];
+// array_splice($physicistsArray, $secondToLast, 'and');
+// echo($physicistsArray);
 
 humanizedList($physicistsArray, true);
-
-
-

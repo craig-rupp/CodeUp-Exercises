@@ -21,3 +21,14 @@ function alphabetize($letters){
 }
 
 alphabetize($letters);
+
+// $unsorted = $letters;
+// $sorted = [];
+// foreach($letters as $i => $letter){
+// 	$min = min($unsorted);
+// 	$sorted[] = $min;
+// 	$index = array_search($min, $unsorted);
+// 	unset($unsorted[$index]);
+// }
+
+// print_r($sorted);

@@ -23,7 +23,6 @@ function parseContacts($filename) {
 	  $contacts[] = $indContact;
 	};
 	fclose($handle);
-	var_dump($contacts);
 	return $contacts;
 }
 //Search Contact by Name
@@ -56,23 +55,35 @@ function deleteContact($deleteName, $allContacts){
 }
 
 //look for Max string length on name
+
 function nameLength($allContacts){
+$maxName = -1;
 	foreach ($allContacts as $contact) {
 		$amount = strlen($contact['name']);
-		$maxName = max($amount);
+		$maxName = max($maxName, $amount);
 	}
 }
 //look for Max length on number
-function phoneNumberLength(){
+function phoneNumberLength($allContacts){
+$maxNumber = -1;
 	foreach ($allContacts as $contact) {
 		$phoneAmount = strlen($contact['number']);
-		$maxNumber = max($phoneAmount)
+		$maxNumber = max($maxNumber, $phoneAmount);
 	}
+}
+function displayContacts($allContacts) {
+  $padName = nameLength($allContacts) + 1;
+  $padNumber = phoneNumberLength($allContacts);
+  $all = $padName + $padNumber + 5;
+  echo str_pad("Name", $padName, " ", STR_PAD_BOTH) . "| " . str_pad("Phone Number", $padNumber, " ", STR_PAD_BOTH) . " |", PHP_EOL;
+  echo str_pad("_", $all, "_", STR_PAD_BOTH), PHP_EOL;
+  foreach ($allContacts as $contact) {
+    echo str_pad($contact['name'], $padName) . "| " . str_pad($contact['number'], $padNumber) . " |", PHP_EOL;
+  }
 }
 
 do {
-	echo 'Name ' . ' | ' . ' Phone number' . PHP_EOL;
-	echo "-----------------" . PHP_EOL; 
+	echo 'Main Menu' . PHP_EOL;
 	echo '1. View contacts.', PHP_EOL;
 	echo '2. Add a new contact.', PHP_EOL;
 	echo '3. Search a contact by name.', PHP_EOL;
@@ -82,7 +93,7 @@ do {
 	$selection = trim(fgets(STDIN));
 	switch ((int)$selection) {
 		case 1:
-			print_r($allContacts);
+			echo displayContacts($allContacts);
 			break;
 		case 2:
 			echo 'Please enter a name: ';
