@@ -3,50 +3,50 @@
 // complete all "todo"s to build a blackjack game
 // create an array for suits
 // create an array for cards
-$cards = [
-  'King' => array('name' => 'King', 'value' => 10),
-  'Queen' => array('name' => 'Queen', 'value' => 10),
-  'Jack' => array('name' => 'Jack', 'value' => 10),
-  '10' => array('name' => 'Ten', 'value' => 10),
-  '9' => array('name' => 'Nine', 'value' => 9),
-  '8' => array('name' => 'Eight', 'value' => 8),
-  '7' => array('name' => 'Seven', 'value' => 7),
-  '6' => array('name' => 'Six', 'value' => 6),
-  '5' => array('name' => 'Five', 'value' => 5),
-  '4' => array('name' => 'Four', 'value' => 4),
-  '3' => array('name' => 'Three', 'value' => 3),
-  '2' => array('name' => 'Two', 'value' => 2),
-  'Ace' => array('name' => 'Ace', 'value' => 11)
-];
+// $cards = [
+//   'King' => array('name' => 'King', 'value' => 10),
+//   'Queen' => array('name' => 'Queen', 'value' => 10),
+//   'Jack' => array('name' => 'Jack', 'value' => 10),
+//   '10' => array('name' => 'Ten', 'value' => 10),
+//   '9' => array('name' => 'Nine', 'value' => 9),
+//   '8' => array('name' => 'Eight', 'value' => 8),
+//   '7' => array('name' => 'Seven', 'value' => 7),
+//   '6' => array('name' => 'Six', 'value' => 6),
+//   '5' => array('name' => 'Five', 'value' => 5),
+//   '4' => array('name' => 'Four', 'value' => 4),
+//   '3' => array('name' => 'Three', 'value' => 3),
+//   '2' => array('name' => 'Two', 'value' => 2),
+//   'Ace' => array('name' => 'Ace', 'value' => 11)
+// ];
 
-$suits = ['Clubs'=> $cards, 'Hearts' => $cards, 'Spades' => $cards, 'Diamond' => $cards];
+// $suits = ['Clubs'=> $cards, 'Hearts' => $cards, 'Spades' => $cards, 'Diamond' => $cards];
+// print_r($suits);
+// $array = ['this','quiz is','super sonic'];
+// echo $array;
+$suits = ['H', 'C', 'S', 'D' ];
+$cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
-foreach($suits as $suit){
-  array_push($cards, var)
-  var_dump($suit);
-  $fullDeck = array_merge($suits, $cards);
-} 
-print_r($fullDeck);
-//Can an Ace hold two values?
-// build a deck (array) of cards
-// $deckArrayy = [
-//   foreach ($suits as $suit) {
-//     $fullDeck = array_merge($suits, $cards);
-//   };
-// ]
-// print_r($deckArrayy);
-// card values should be "VALUE SUIT". ex: "7 H"
-// make sure to shuffle the deck before returning it
+
 function buildDeck($suits, $cards) {
-	$randCard = $cards[array_rand($cards)];
-	$randomSuit = $suits[array_rand($suits)];
-	// echo $randCard . " " . $randomSuit, PHP_EOL;
-  // todo
+  $deck = [];
+  foreach ($suits as $suit) {
+    foreach ($cards as $card) {
+      array_push($deck, "$card $suit");
+    }
+  }
+	shuffle($deck);
+  return $deck;
 }
+
+$deck = buildDeck($suits, $cards);
+print_r($deck);
 // determine if a card is an ace
 // return true for ace, false for anything else
 function cardIsAce($card) {
-	
+  $Ace = explode(delimiter, string)
+	if(strpos($card, 'A') !== false){
+    
+  }
   // todo
 }
 // determine the value of an individual card (string)

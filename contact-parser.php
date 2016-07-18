@@ -20,3 +20,6 @@ function parseContacts($filename)
     return $contacts;
 }
 var_dump(parseContacts('contacts.txt'));
+
+$array = ['this','quiz is','super sonic'];
+echo $array;
