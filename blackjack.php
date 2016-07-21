@@ -21,8 +21,6 @@
 
 // $suits = ['Clubs'=> $cards, 'Hearts' => $cards, 'Spades' => $cards, 'Diamond' => $cards];
 // print_r($suits);
-// $array = ['this','quiz is','super sonic'];
-// echo $array;
 $suits = ['H', 'C', 'S', 'D' ];
 $cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
@@ -43,23 +41,46 @@ print_r($deck);
 // determine if a card is an ace
 // return true for ace, false for anything else
 function cardIsAce($card) {
-  $Ace = explode(delimiter, string)
-	if(strpos($card, 'A') !== false){
-    
-  }
-  // todo
+  $checkCardValue = substr($card, 0, 1);
+    if ($checkCardValue == "A") {
+    return TRUE;
+  } else {
+    return FALSE;
+    }
 }
+  // todo
 // determine the value of an individual card (string)
 // aces are worth 11
 // face cards are worth 10
 // numeric cards are worth their value
 function getCardValue($card) {
   // todo
+  $checkCardValue = substr($card, 0, 1);
+  if($checkCardValue == "A"){
+    $cardValue = 11;
+  } elseif (is_numeric($checkCardValue)) {
+    $cardValue = intval($checkCardValue);
+  } else{
+    $cardValue = 10;
+  }
+  return $cardValue;
 }
 // get total value for a hand of cards
 // don't forget to factor in aces
 // aces can be 1 or 11 (make them 1 if total value is over 21)
 function getHandTotal($hand) {
+  // $hand = [];
+  foreach($hand as $card){
+    $cardValue = getCardValue($card);
+    array_push($hand, $cardValue);
+    $catchAce = cardIsAce($card);
+      // not sure what to do here
+  }
+  $handTotal = array_sum($hand);
+  if($catchAce == true && $handTotal > 21){
+    $handTotal -= 10;
+  }
+  return $handTotal;
   // todo
 }
 // draw a card from the deck into a hand
