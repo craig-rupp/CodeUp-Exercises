@@ -86,7 +86,8 @@ function getHandTotal($hand) {
 // draw a card from the deck into a hand
 // pass by reference (both hand and deck passed in are modified)
 function drawCard(&$hand, &$deck) {
-  // todo
+  $cardDrawn = array_shift($deck);
+  array_push($deck, $cardDrawn);
 }
 // print out a hand of cards
 // name is the name of the player
