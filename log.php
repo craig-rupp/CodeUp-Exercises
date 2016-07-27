@@ -18,7 +18,7 @@ class Log
 		fwrite($this->handle, $myLog . PHP_EOL);
 	}
 
-	public function info($message)
+	public function info($message) // mesg = ''
 	{
 		$this->logMessage('INFO', $message);
 	}
