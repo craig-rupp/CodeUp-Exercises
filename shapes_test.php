@@ -23,3 +23,6 @@ $newSquare = new Square(15);
 
 echo "Dis square has an area of: " . $newSquare->area().PHP_EOL;
 
+$anotherSquare = new Square(12);
+
+echo "Another square: checking perimeter with " . $anotherSquare->perimeter() . PHP_EOL;

@@ -3,18 +3,45 @@
 class Log
 
 {
-	public $filename;
-	public $handle;
+	private $filename;
+	private $handle;
 
 	public function __construct($prefix = 'log')
 	{
-		$this->filename = $prefix . "-" . date("Y-M-D") . ".log";
-		$this->handle = fopen($this->filename, 'a');
+		$this->filename = $prefix . "-" . date("Y-m-d") . ".log";
+		$this->openHandle();
 	}
+
+	private function setFile($filename)
+	{
+		$this->filename = (string)$filename;
+	}
+
+	private function setHandle($handle)
+	{
+		$this->handle = $handle;
+	}
+
+	private function getFile()
+	{
+		return $this->filename;
+	}
+
+	private function openHandle()
+	{
+		if(touch($this->filename) && is_writable($this->filename))
+		{
+			$this->handle = fopen($this->filename, 'a');
+		}
+		else {
+			echo "Can't write dis file";
+		} 
+	}
+
 
 	public function logMessage($logLevel, $message)
 	{	
-		$myLog = date("Y-M-D") . " $logLevel $message";
+		$myLog = date("Y-m-d") . " $logLevel $message";
 		fwrite($this->handle, $myLog . PHP_EOL);
 	}
 
