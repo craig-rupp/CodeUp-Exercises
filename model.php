@@ -5,7 +5,7 @@ class Model
 	//Array to store key/value data
 
 	private $attributes = [];
-	protected $table;
+	protected static $table  = 'Gunners';
 
 	//Magic setter to populate $attributes array
 	public function __set($name, $value)
@@ -22,6 +22,11 @@ class Model
 		return null;
 	}
 
+	public static function getTableName()
+	{
+		return static::$table;
+	}
+
 }
 
 $testing = new Model();
@@ -33,4 +38,4 @@ echo $testing->club . " is my favorite soccer club!" . PHP_EOL;
 
 echo $testing->finances . " is how many pounds supposedly we have yet to spend" . PHP_EOL;
 
-
+echo Model::getTableName() . PHP_EOL;
