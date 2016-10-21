@@ -98,7 +98,11 @@ function drawCard(&$hand, &$deck) {
 // Player: [J D] [2 D] Total: 12
 function echoHand($hand, $name, $hidden = false) {
   // todo
-  
+  if($hidden){
+    fwrite(STDOUT, "$name: ");
+    fwrite(STDOUT, "[$hand[0]] [??]");
+    fwrite()
+  }
 }
 // build the deck of cards
 $deck = buildDeck($suits, $cards);
