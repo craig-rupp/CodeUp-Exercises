@@ -27,26 +27,23 @@ $cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
 function buildDeck($suits, $cards) {
   $deck = [];
-  foreach ($suits as $suit) {
-    foreach ($cards as $card) {
-      array_push($deck, "$card $suit");
+  foreach($suits as $suit){
+    //echo "$suit" . PHP_EOL;
+    foreach($cards as $card){
+      //echo "$suit $card" . PHP_EOL;
+      array_push($deck, "$suit $card");
     }
   }
-	shuffle($deck);
+  //shuffle($deck);
   return $deck;
 }
-
 $deck = buildDeck($suits, $cards);
 print_r($deck);
+//print_r($deck);
 // determine if a card is an ace
 // return true for ace, false for anything else
 function cardIsAce($card) {
-  $checkCardValue = substr($card, 0, 1);
-    if ($checkCardValue == "A") {
-    return TRUE;
-  } else {
-    return FALSE;
-    }
+ 
 }
   // todo
 // determine the value of an individual card (string)
@@ -55,39 +52,18 @@ function cardIsAce($card) {
 // numeric cards are worth their value
 function getCardValue($card) {
   // todo
-  $checkCardValue = substr($card, 0, 1);
-  if($checkCardValue == "A"){
-    $cardValue = 11;
-  } elseif (is_numeric($checkCardValue)) {
-    $cardValue = intval($checkCardValue);
-  } else{
-    $cardValue = 10;
-  }
-  return $cardValue;
+ 
 }
 // get total value for a hand of cards
 // don't forget to factor in aces
 // aces can be 1 or 11 (make them 1 if total value is over 21)
 function getHandTotal($hand) {
-  // $hand = [];
-  foreach($hand as $card){
-    $cardValue = getCardValue($card);
-    array_push($hand, $cardValue);
-    $catchAce = cardIsAce($card);
-      // not sure what to do here
-  }
-  $handTotal = array_sum($hand);
-  if($catchAce == true && $handTotal > 21){
-    $handTotal -= 10;
-  }
-  return $handTotal;
   // todo
 }
 // draw a card from the deck into a hand
 // pass by reference (both hand and deck passed in are modified)
 function drawCard(&$hand, &$deck) {
-  $cardDrawn = array_shift($deck);
-  array_push($deck, $cardDrawn);
+  
 }
 // print out a hand of cards
 // name is the name of the player
@@ -98,12 +74,9 @@ function drawCard(&$hand, &$deck) {
 // Player: [J D] [2 D] Total: 12
 function echoHand($hand, $name, $hidden = false) {
   // todo
-  if($hidden){
-    fwrite(STDOUT, "$name: ");
-    fwrite(STDOUT, "[$hand[0]] [??]");
-    fwrite()
-  }
+  
 }
+//echoHand();
 // build the deck of cards
 $deck = buildDeck($suits, $cards);
 // initialize a dealer and player hand
